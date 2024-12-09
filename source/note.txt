@@ -1,0 +1,50 @@
+; $02A8 wird mit $80 vorbelegt
+; $028D wird im IRQ mit #$00 beschrieben
+; $CB wird im IRQ mit #$40 bechrienem
+
+
+
+; Textfelder
+
+; Headerbereich
+;
+; 01 Diskettenname
+; 02 Etikettenname
+; 03 Menue
+; 04 Untermenue
+
+
+; Eingabebereich
+;
+; 05 Etikettenhoehe
+; 06 Laufrichtung
+; 07 Etikettenbreite
+; 08 Abstand seitlich
+; 09 Anzahl Bahnen
+; 0A Schriftgroesse
+; 0B Anzahl Etiketten
+; 0C Daten 2 aus 5
+; 0D Anfangswert
+; 0E Schrittweite positiv
+; 0F Daten EAN 13
+; 10 Daten EAN 8
+; 11 Daten Code 39
+; 12 Schrittweite negativ
+
+
+; Berechnung der Druckbreite
+; Die Breite eines Ausdrucks muss mindestens 10mm sein, und darf 200mm nicht uebersteigen
+; Zur Berechnung werden die Etikettenbreite und der Abstand seitlich summiert.
+; Diese Summe wird dann mit der Anzahl der Bahnen multipliziert.
+
+; Berechnung der Etikettenhoehe
+
+; Schriftgroessen
+; 1 = 8   Punkte
+; 2 = 16  Punkte
+; 3 = 24  Punkte
+; 4 = 32  Punkte
+; 5 = 48  Punkte
+; 6 = 64  Punkte
+; 7 = 96  Punkte
+; 8 = 128 Punkte
