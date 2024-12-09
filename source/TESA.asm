@@ -1737,7 +1737,7 @@ LAB81 LDY #$20
     RTS
 ---------------------------------
     LDX CRSR_BREITE            ; Cursor Breite, $17
-    JSR TA162                 ; LAB30, subtrahiere X von Y
+    JSR TA126                 ; LAB30, subtrahiere X von Y
     LDA ($03),Y
     ASL
     ASL
@@ -3443,7 +3443,7 @@ LB766
     CMP #$0A                  ; 10 ?
     BCS +                     ; verzweige wenn gleich oder groesser
     JSR $A16B
-    BCC +
+    BCC ++
 ; Diskette ist voll
 +   JSR TA06C                 ; LA846, Aktualisiere Text-Bildschirm
     JSR TA072                 ; LA45C, nachfolgenden Text in Bildschirmspeicher schreiben
@@ -3453,7 +3453,7 @@ LB766
     !pet "neue etikettendiskette einlegen!",$00
     JMP .lBE40                ; Ausgabe "Return druecken"
 ---------------------------------
-+   LDA #$F1 
+++  LDA #$F1 
     JSR TA087                 ; LB541, sende Dateiname
     !pet "0:bf",$00
     LDY #$02                  ; Textfeldnummer, 'Etikettenname'
